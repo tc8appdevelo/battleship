@@ -8,14 +8,14 @@ public class App {
         System.out.println();
         System.out.print("Enter game size: ");
         int n = console.nextInt();
-        Game game = new Game(n);
+        Battleship battleship = new Battleship(n);
         console.nextLine();
         System.out.println();
-        game.startGame();
+        battleship.startGame();
 
-        while (!game.isGameOver()) {
+        while (!battleship.isGameOver()) {
             System.out.println("------------------------");
-            game.turn();
+            battleship.turn();
         }
     }
 }

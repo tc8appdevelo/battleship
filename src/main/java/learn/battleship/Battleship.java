@@ -2,13 +2,13 @@ package learn.battleship;
 
 import java.util.Scanner;
 
-public class Game {
+public class Battleship {
     public Scanner console = new Scanner(System.in);
     private Board board;
     private Player player;
     private int remainingMisses;
 
-    public Game(int n) {
+    public Battleship(int n) {
         this.board = new Board(n);
         this.player = new Player();
         this.remainingMisses = board.getSize()/2;
@@ -17,6 +17,8 @@ public class Game {
     public Board getBoard() {
         return board;
     }
+    public Player getPlayer() { return player; }
+    public int getRemainingMisses() { return remainingMisses; }
 
     public void startGame() {
         board.placeRandomShips();
