@@ -2,6 +2,7 @@ package learn.battleship;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.InputStream;
@@ -25,7 +26,7 @@ class BattleshipTest {
     // initialize
     @Test
     public void shouldSetPlayerToNewPlayerInstance() {
-        assertEquals(Player.class, game.getPlayer().getClass());
+        assertEquals(Player.class, new Battleship(5).getPlayer().getClass());
     }
     @Test
     void shouldCallBoardNewWithGivenLengthN() {
@@ -33,7 +34,7 @@ class BattleshipTest {
     }
     @Test
     void shouldSetBoardToInstanceWithSizeNTimesN() {
-
+        assertEquals(100, new Battleship(10).getBoard().getSize());
     }
     @Test
     void shouldSetRemainingMissesToHalfBoardSize() {
@@ -44,23 +45,25 @@ class BattleshipTest {
     // getBoard
     @Test
     void shouldReturnBoardInstance() {
-        // check if it is the class board
+        assertEquals(Board.class, game.getBoard().getClass());
     }
 
     // getPlayer
     @Test
     void shouldReturnAPlayerInstance() {
-        // check if class player
+        assertEquals(Player.class, game.getPlayer().getClass());
     }
 
     // startGame
+    @Disabled
     @Test
     void shouldRandomlyPlaceShipsOnTheBoard() {
-        // expect it to use placeRandomShips method
+
     }
+    @Disabled
     @Test
     void shouldPrintNumberOfShipsPlacedOnBoard() {
-        // need to check standard output here for number
+
     }
 
 
