@@ -9,7 +9,6 @@ public class Player {
         int row = scanner.nextInt();
         int col = scanner.nextInt();
         scanner.nextLine();
-        int[] move = {row, col};
-        return move;
+        return new int[]{row, col};
     }
 }
