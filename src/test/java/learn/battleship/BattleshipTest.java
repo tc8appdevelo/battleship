@@ -1,16 +1,11 @@
 package learn.battleship;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.io.InputStream;
-import java.util.Scanner;
+import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+@DisplayName("Battleship")
 class BattleshipTest {
-//    private InputStream originalSystemIn;
-//    private Scanner scanner;
     private Battleship game;
 
     @BeforeEach
@@ -18,53 +13,74 @@ class BattleshipTest {
         game = new Battleship(5);
     }
 
-//    @AfterEach
-//    public void tearDown() {
-//
-//    }
+    @Nested
+    @DisplayName("initialize")
+    class Initialize {
 
-    // initialize
-    @Test
-    public void shouldSetPlayerToNewPlayerInstance() {
-        assertEquals(Player.class, new Battleship(5).getPlayer().getClass());
-    }
-    @Test
-    void shouldCallBoardNewWithGivenLengthN() {
-        assertEquals(5, game.getBoard().getGrid().length);
-    }
-    @Test
-    void shouldSetBoardToInstanceWithSizeNTimesN() {
-        assertEquals(100, new Battleship(10).getBoard().getSize());
-    }
-    @Test
-    void shouldSetRemainingMissesToHalfBoardSize() {
-        int misses = game.getBoard().getSize()/2;
-        assertEquals(misses, game.getRemainingMisses());
-    }
 
+        @Test
+        @DisplayName("sets player to new instance of Player class")
+        public void shouldSetPlayerToNewPlayerInstance() {
+            assertEquals(Player.class, new Battleship(5).getPlayer().getClass());
+        }
+
+        @Test
+        @DisplayName("sets board to new instance of Board passing it n")
+        void shouldCallBoardNewWithGivenLengthN() {
+            assertEquals(5, game.getBoard().getGrid().length);
+        }
+
+        @Test
+        @DisplayName("sets board size to n * n")
+        void shouldSetBoardToInstanceWithSizeNTimesN() {
+            assertEquals(100, new Battleship(10).getBoard().getSize());
+        }
+
+        @Test
+        @DisplayName("sets remainingMisses int to half of board size")
+        void shouldSetRemainingMissesToHalfBoardSize() {
+            int misses = game.getBoard().getSize() / 2;
+            assertEquals(misses, game.getRemainingMisses());
+        }
+    }
     // getBoard
-    @Test
-    void shouldReturnBoardInstance() {
-        assertEquals(Board.class, game.getBoard().getClass());
-    }
+    @Nested
+    @DisplayName("getter methods")
+    class ShouldGet {
 
-    // getPlayer
-    @Test
-    void shouldReturnAPlayerInstance() {
-        assertEquals(Player.class, game.getPlayer().getClass());
-    }
 
+        @Test
+        @DisplayName("getBoard should return a Board instance")
+        void shouldReturnBoardInstance() {
+            assertEquals(Board.class, game.getBoard().getClass());
+        }
+
+        // getPlayer
+        @Test
+        @DisplayName("getPlayer should return a Player instance")
+        void shouldReturnAPlayerInstance() {
+            assertEquals(Player.class, game.getPlayer().getClass());
+        }
+    }
     // startGame
-    @Disabled
-    @Test
-    void shouldRandomlyPlaceShipsOnTheBoard() {
+    @Nested
+    @DisplayName("startGame")
+    class StartGame {
 
+
+
+        @Test
+        @DisplayName("randomly places ships on board")
+        void shouldRandomlyPlaceShipsOnTheBoard() {
+
+        }
+
+
+        @Test
+        @DisplayName("prints the number of ships placed on the board")
+        void shouldPrintNumberOfShipsPlacedOnBoard() {
+
+        }
     }
-    @Disabled
-    @Test
-    void shouldPrintNumberOfShipsPlacedOnBoard() {
-
-    }
-
 
 }
